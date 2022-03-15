@@ -1,0 +1,427 @@
+---
+title: "new plots"
+output: pdf_document
+---
+
+```{r,include=FALSE}
+# install.packages("essurvey")
+# install.packages("janitor")
+library(janitor)
+library(tidyselect)
+library(dplyr)
+library(essurvey)
+show_countries()
+set_email("siming.shan@mail.utoronto.ca")
+show_rounds()
+UK <- import_country(
+  country = "United Kingdom",
+  rounds = c(9)
+)
+
+France <- import_country(
+  country = "France",
+  rounds = c(9)
+)
+
+Serbia <- import_country(
+  country = "Serbia",
+  rounds = c(9)
+)
+
+# select  "1 age" , 
+# "2 How interested in politics",
+# "3 Political system allows people to have a say in what government does",
+# "4 Trust in the legal system", 
+# "5 Trust in the police",
+# "6 Trust in politicians", 
+# "7 Able to take active role in political group"
+# "8 Political system allows people to have influence on politics"
+#  8 variables in total
+
+UK_politics <- subset(UK, select = c("agea","polintr", "psppsgva", 
+                                     "trstlgl", "trstplc", "trstplt",
+                                     "actrolga", "psppipla"
+                                     ))
+
+France_politics <- subset(France, select = c("agea","polintr", "psppsgva", 
+                                             "trstlgl", "trstplc", "trstplt",
+                                             "actrolga", "psppipla"
+                                             ))
+
+Serbia_politics <- subset(Serbia, select = c("agea","polintr", "psppsgva", 
+                                             "trstlgl", "trstplc", "trstplt",
+                                             "actrolga", "psppipla"
+                                             ))
+
+UK_politics <- 
+  UK_politics %>% 
+  rename(
+    age = agea,
+    politics_interest = polintr,
+    able_to_say = psppsgva,
+    trust_legal_system = trstlgl,
+    police = trstplc,
+    trust_politicians = trstplt,
+    able_to_paly_role = actrolga,
+    allow_influence = psppipla
+  )
+
+France_politics <- 
+  France_politics %>% 
+  rename(
+    age = agea,
+    politics_interest = polintr,
+    able_to_say = psppsgva,
+    trust_legal_system = trstlgl,
+    police = trstplc,
+    trust_politicians = trstplt,
+    able_to_paly_role = actrolga,
+    allow_influence = psppipla
+  )
+
+Serbia_politics <- 
+  Serbia_politics %>% 
+  rename(
+    age = agea,
+    politics_interest = polintr,
+    able_to_say = psppsgva,
+    trust_legal_system = trstlgl,
+    police = trstplc,
+    trust_politicians = trstplt,
+    able_to_paly_role = actrolga,
+    allow_influence = psppipla
+  )
+
+```
+
+```{r,echo=FALSE}
+# age 
+# install.packages("ggplot2")
+library(ggplot2)
+
+UK_politics["age_group"] = cut(UK_politics$age, c(15, 24, 34, 44, 54, 64, 74,
+                                                  84, Inf),
+                               c("15-24", "25-34", "35-44",
+                                 "45-54", "55-64", "65-74", 
+                                 "75-84", "Over 85"), include.lowest=TRUE)
+
+France_politics["age_group"] = cut(France_politics$age, c(15, 24, 34, 44, 54, 64, 74,
+                                                  84, Inf),
+                               c("15-24", "25-34", "35-44",
+                                 "45-54", "55-64", "65-74", 
+                                 "75-84", "Over 85"), include.lowest=TRUE)
+
+Serbia_politics["age_group"] = cut(Serbia_politics$age, c(15, 24, 34, 44, 54, 64, 74,
+                                                  84, Inf),
+                               c("15-24", "25-34", "35-44",
+                                 "45-54", "55-64", "65-74", 
+                                 "75-84", "Over 85"), include.lowest=TRUE)
+
+ggplot(UK_politics, aes(x=age_group,fill=age_group)) + geom_bar(stat = "count") +
+  ggtitle("Survey respondents's age in UK") +
+  theme(legend.position = "none",
+        axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold")) 
+
+ggplot(France_politics, aes(x=age_group,fill=age_group)) + geom_bar(stat = "count") +
+  ggtitle("Survey respondents's age in France") +
+  theme(legend.position = "none",
+        axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold")) 
+
+ggplot(Serbia_politics, aes(x=age_group,fill=age_group)) + geom_bar(stat = "count") +
+  ggtitle("Survey respondents's age in Serbia") +
+  theme(legend.position = "none",
+        axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold")) 
+
+
+```
+
+```{r,echo=FALSE}
+#politics interest graph
+
+library(ggplot2)
+
+ggplot(UK_politics, aes(x=politics_interest,fill=politics_interest)) + 
+  geom_bar(stat = "count", width = 0.5) +
+  ggtitle("Respondents's interest in politics in UK") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none")
+
+ggplot(France_politics, aes(x=politics_interest,fill=politics_interest)) + 
+  geom_bar(stat = "count", width = 0.5) +
+  ggtitle("Respondents's interest in politics in France") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none")
+
+ggplot(Serbia_politics, aes(x=politics_interest,fill=politics_interest)) + 
+  geom_bar(stat = "count", width = 0.5) +
+  ggtitle("Respondents's interest in politics in Serbia") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none")
+
+
+```
+
+```{r,echo=FALSE}
+# Do you think Political system allows people to have a say in what government does
+
+library(ggplot2)
+ggplot(UK_politics, aes(x=able_to_say,fill=able_to_say)) + 
+  geom_bar(stat = "count") +
+  labs(fill="How much") +
+  ggtitle("Do you think Political system allows people ...", 
+          subtitle ="...to have a say in what government does in UK") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5)) 
+
+ggplot(France_politics, aes(x=able_to_say,fill=able_to_say)) + 
+  geom_bar(stat = "count") +
+  labs(fill="How much") +
+  ggtitle("Do you think Political system allows people ...", 
+          subtitle ="...to have a say in what government does in France") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5)) 
+
+ggplot(Serbia_politics, aes(x=able_to_say,fill=able_to_say)) + 
+  geom_bar(stat = "count") +
+  labs(fill="How much") +
+  ggtitle("Do you think Political system allows people ...", 
+          subtitle ="...to have a say in what government does in Serbia") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5)) 
+
+        
+
+```
+
+```{r,echo=FALSE}
+# Do you think you are able to take active role in political group?
+
+library(ggplot2)
+ggplot(UK_politics, aes(x=able_to_paly_role,fill=able_to_paly_role)) + 
+  geom_bar(stat = "count") +
+  labs(fill="How much") +
+  ggtitle("Do you think you are able to take ...", 
+          subtitle ="...active role in political group in UK") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5)) 
+
+ggplot(France_politics, aes(x=able_to_paly_role,fill=able_to_paly_role)) + 
+  geom_bar(stat = "count") +
+  labs(fill="How much") +
+  ggtitle("Do you think you are able to take ...", 
+          subtitle ="...active role in political group in France") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5)) 
+
+ggplot(Serbia_politics, aes(x=able_to_paly_role,fill=able_to_paly_role)) + 
+  geom_bar(stat = "count") +
+  labs(fill="How much") +
+  ggtitle("Do you think you are able to take ...", 
+          subtitle ="...active role in political group in Serbia") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5)) 
+
+
+```
+
+```{r,echo=FALSE}
+# Do you think whether political system allows people to have influence on politics?
+
+library(ggplot2)
+ggplot(UK_politics, aes(x=allow_influence,fill=allow_influence)) + 
+  geom_bar(stat = "count") +
+  labs(fill="How much") +
+  ggtitle("Do you think whether political system allows people ...", 
+          subtitle ="...to have influence on politics in UK") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5)) 
+
+library(ggplot2)
+ggplot(France_politics, aes(x=allow_influence,fill=allow_influence)) + 
+  geom_bar(stat = "count") +
+  labs(fill="How much") +
+  ggtitle("Do you think whether political system allows people ...", 
+          subtitle ="...to have influence on politics in France") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5)) 
+
+library(ggplot2)
+ggplot(Serbia_politics, aes(x=allow_influence,fill=allow_influence)) + 
+  geom_bar(stat = "count") +
+  labs(fill="How much") +
+  ggtitle("Do you think whether political system allows people ...", 
+          subtitle ="...to have influence on politics in Serbia") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5)) 
+
+
+
+```
+
+```{r,echo=FALSE}
+# trust legal system?
+
+library(ggplot2)
+ggplot(UK_politics, aes(x=trust_legal_system,fill=trust_legal_system)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on legal system in UK") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+
+library(ggplot2)
+ggplot(France_politics, aes(x=trust_legal_system,fill=trust_legal_system)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on legal system in France") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+
+library(ggplot2)
+ggplot(Serbia_politics, aes(x=trust_legal_system,fill=trust_legal_system)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on legal system in Serbia") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+
+
+```
+
+```{r,echo=FALSE}
+# trust police?
+
+library(ggplot2)
+ggplot(UK_politics, aes(x=police,fill=police)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on police in UK") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+
+library(ggplot2)
+ggplot(France_politics, aes(x=police,fill=police)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on police iin France") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+
+library(ggplot2)
+ggplot(Serbia_politics, aes(x=police,fill=police)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on police in Serbia") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+
+
+```
+
+```{r,echo=FALSE}
+# trust politicians?
+
+library(ggplot2)
+ggplot(UK_politics, aes(x=trust_politicians,fill=trust_politicians)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on politicians in UK") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+
+
+library(ggplot2)
+ggplot(France_politics, aes(x=trust_politicians,fill=trust_politicians)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on politicians in France") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+
+
+library(ggplot2)
+ggplot(Serbia_politics, aes(x=trust_politicians,fill=trust_politicians)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on politicians in Serbia") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+
+
+```
+
+
+
+
