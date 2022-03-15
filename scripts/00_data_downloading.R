@@ -7,3 +7,13 @@ UK <- import_country(
   country = "United Kingdom",
   rounds = c(9)
 )
+
+France <- import_country(
+  country = "France",
+  rounds = c(9)
+)
+
+Serbia <- import_country(
+  country = "Serbia",
+  rounds = c(9)
+)

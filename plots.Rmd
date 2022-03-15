@@ -1,0 +1,248 @@
+---
+title: "Untitled"
+output: pdf_document
+---
+
+---
+title: "All plots"
+output: pdf_document
+date: '2022-03-09'
+---
+
+```{r,echo=FALSE,message=FALSE}
+# install.packages("essurvey", repos="http://cran.us.r-project.org")
+# install.packages("janitor")
+# install.packages("ggplot2")
+library(ggplot2)
+library(janitor)
+library(tidyselect)
+library(dplyr)
+library(essurvey)
+show_countries()
+set_email("siming.shan@mail.utoronto.ca")
+show_rounds()
+UK <- import_country(
+  country = "United Kingdom",
+  rounds = c(9)
+)
+
+# select "1 gender", "2 age", "3 News about politics and current affairs, watching, 
+# reading or listening, in minutes" , "4 Internet use, how often", "5 Most people 
+# can be trusted or you can't be too careful", "6 Most people try to take 
+# advantage of you, or try to be fair", "7 Most of the time people helpful 
+# or mostly looking out for themselves, "8 How interested in politics",
+# "9 Political system allows people to have a say in what government does",
+# "10 Trust in country's parliament", "11 Trust in the legal system", 
+# "12 Trust in the police", "13 Trust in politicians", "14Trust in political parties"
+# 14 variables in total
+
+UK_politics <- subset(UK, select = c("gndr", "agea","nwspol","netusoft",
+                                     "ppltrst", "pplfair","pplhlp",
+                                     "polintr", "psppsgva", "trstprl",
+                                     "trstlgl", "trstplc", "trstplt", "trstprt"
+                                     ))
+
+UK_politics <- 
+  UK_politics %>% 
+  rename(
+    gender = gndr,
+    age = agea,
+    time_spend_on_watching_politics = nwspol,
+    Internet_use = netusoft  ,
+    people_can_be_trust = ppltrst,
+    people_try_to_take_advantage_of_you = pplfair,
+    people_helpful = pplhlp,
+    politics_interest = polintr,
+    able_to_say = psppsgva,
+    trust_parliament = trstprl,
+    trust_legal_system = trstlgl,
+    police = trstplc,
+    trust_politicians = trstplt,
+    trust_political_parties = trstprt
+  )
+
+# change the age column in the dataset to age group
+
+UK_politics["age_group"] = cut(UK_politics$age, c(15, 24, 34, 44, 54, 64, 74,
+                                                  84, Inf),
+                               c("15-24", "25-34", "35-44",
+                                 "45-54", "55-64", "65-74", 
+                                 "75-84", "Over 85"), include.lowest=TRUE)
+
+ggplot(UK_politics, aes(x=age_group,fill=age_group)) + geom_bar(stat = "count") +
+  ggtitle("Survey respondents's age") +
+  theme(legend.position = "none",
+        axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold")) 
+
+
+  
+# graph of gender
+library(ggplot2)
+
+ggplot(UK_politics, aes(x=gender,fill=gender)) + geom_bar(stat = "count", width = 0.4) +
+  ggtitle("Survey respondents's gender")+
+  theme(legend.position = "none",
+        axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust=0.5, face = "bold"))
+
+#graph of internet use by age group
+library(ggplot2)
+
+ggplot(UK_politics, aes(x=age_group,fill= Internet_use)) + geom_bar(stat = "count") +
+  ggtitle("How often do respondents use internet by age group") +
+  labs(fill="How often")+
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"))
+
+# can people be trusted? graph
+library(ggplot2)
+
+ggplot(UK_politics, aes(x=people_can_be_trust,fill=people_can_be_trust)) + 
+  geom_bar(stat = "count") +
+  ggtitle("Do you think people can be trusted?") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none")
+               
+# Do you think people try to take advantage of you? graph
+library(ggplot2)
+
+ggplot(UK_politics, aes(x=people_try_to_take_advantage_of_you,fill=people_try_to_take_advantage_of_you)) + 
+  geom_bar(stat = "count") +
+  ggtitle("Do you think people try to take advantage of you?") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none")
+
+# Would you say that most of the time people try to be helpful or that they 
+# are mostly looking out for themselves?
+
+library(ggplot2)
+
+ggplot(UK_politics, aes(x=people_helpful,fill=people_helpful)) + 
+  geom_bar(stat = "count") +
+  ggtitle("Do you think most of the time people try to be helpful?") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 60, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none")
+
+#politics interest graph
+
+library(ggplot2)
+
+ggplot(UK_politics, aes(x=politics_interest,fill=politics_interest)) + 
+  geom_bar(stat = "count", width = 0.5) +
+  ggtitle("Respondents's interest in poolitics") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none")
+
+# interest in politics by age group
+library(ggplot2)
+ggplot(UK_politics, aes(x=age_group,fill=politics_interest)) + 
+  geom_bar(stat = "count", width = 0.5) +
+  labs(fill="How interest") +
+  ggtitle("Respondents's interest in politics by age group") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "bottom") +
+  coord_flip()
+
+# Do you think Political system allows people to have a say in what government does
+
+library(ggplot2)
+ggplot(UK_politics, aes(x=able_to_say,fill=able_to_say)) + 
+  geom_bar(stat = "count") +
+  labs(fill="How much") +
+  ggtitle("Do you think Political system allows people ...", 
+          subtitle ="...to have a say in what government does") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text( vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5)) 
+
+# trust parliament?
+
+library(ggplot2)
+ggplot(UK_politics, aes(x=trust_parliament,fill=trust_parliament)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on paliament") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+
+# trust legal system?
+
+library(ggplot2)
+ggplot(UK_politics, aes(x=trust_legal_system,fill=trust_legal_system)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on legal system") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+# trust police?
+
+library(ggplot2)
+ggplot(UK_politics, aes(x=police,fill=police)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on police") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+
+# trust politicians?
+
+library(ggplot2)
+ggplot(UK_politics, aes(x=trust_politicians,fill=trust_politicians)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on politicians") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+
+# trust political parties?
+
+library(ggplot2)
+ggplot(UK_politics, aes(x=trust_political_parties,fill=trust_political_parties)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on political parties") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") 
+
+
+
+```
