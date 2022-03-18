@@ -28,6 +28,11 @@ Serbia_politics <- subset(Serbia, select = c("agea","polintr", "psppsgva",
                                              "actrolga", "psppipla"
                                              ))
 
+Latvia_politics <- subset(Latvia, select = c("agea","polintr", "psppsgva", 
+                                     "trstlgl", "trstplc", "trstplt",
+                                     "actrolga", "psppipla"
+))
+
 UK_politics <- 
   UK_politics %>% 
   rename(
@@ -67,3 +72,15 @@ Serbia_politics <-
     allow_influence = psppipla
   )
 
+Latvia_politics <- 
+  Latvia_politics %>% 
+  rename(
+    age = agea,
+    politics_interest = polintr,
+    able_to_say = psppsgva,
+    trust_legal_system = trstlgl,
+    police = trstplc,
+    trust_politicians = trstplt,
+    able_to_paly_role = actrolga,
+    allow_influence = psppipla
+  )
