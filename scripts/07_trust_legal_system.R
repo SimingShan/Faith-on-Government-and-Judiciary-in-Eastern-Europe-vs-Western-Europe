@@ -1,4 +1,10 @@
-# trust legal system?
+#### Preamble ####
+# Purpose: create distribution plot focused on respondents' trust on legal system
+# Author: Siming Shan
+# Data: 20 March 2022
+# Contact: siming.shan@mail.utoronto.ca
+# License: MIT
+
 
 library(ggplot2)
 ggplot(UK_politics, aes(x=trust_legal_system,fill=trust_legal_system)) + 

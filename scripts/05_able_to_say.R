@@ -1,4 +1,10 @@
-# Do you think Political system allows people to have a say in what government does
+#### Preamble ####
+# Purpose: create distribution plot focused on respondents' response on the question "Do you think Political system allows people to have a say in what government does"
+# Author: Siming Shan
+# Data: 20 March 2022
+# Contact: siming.shan@mail.utoronto.ca
+# License: MIT
+
 
 library(ggplot2)
 ggplot(UK_politics, aes(x=able_to_say,fill=able_to_say)) + 

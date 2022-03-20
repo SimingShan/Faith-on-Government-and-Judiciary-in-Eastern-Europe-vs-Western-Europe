@@ -1,3 +1,10 @@
+#### Preamble ####
+# Purpose: select variables from the raw dataset, then clean the data frame
+# Author: Siming Shan
+# Data: 20 March 2022
+# Contact: siming.shan@mail.utoronto.ca
+# License: MIT
+
 install.packages("janitor")
 library(janitor)
 library(tidyselect)

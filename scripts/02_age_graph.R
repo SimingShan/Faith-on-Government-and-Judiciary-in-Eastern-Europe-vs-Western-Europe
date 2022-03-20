@@ -1,4 +1,11 @@
-# change the age column in the dataset to age group
+
+#### Preamble ####
+# Purpose: change the age column in the dataset to age group then create age distribution plot
+# Author: Siming Shan
+# Data: 20 March 2022
+# Contact: siming.shan@mail.utoronto.ca
+# License: MIT
+
 install.packages("ggplot2")
 library(ggplot2)
 

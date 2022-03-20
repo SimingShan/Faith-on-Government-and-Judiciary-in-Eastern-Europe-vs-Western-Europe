@@ -1,6 +1,15 @@
 ---
-title: "All plots"
+title: "TUT 6"
+subtitle: 
+author:
+  - Aleksander Babic
+  - Shivik Arora
+  - Siming Shan
+thanks:
+date: "20 March 2022"
 output: pdf_document
+toc: FALSE
+bibliography: references.bib
 ---
 
 ```{r,include=FALSE}
@@ -525,7 +534,7 @@ library(ggplot2)
 ggplot(France_politics, aes(x=police,fill=police)) + 
   geom_bar(stat = "count") +
   labs(fill="Score") +
-  ggtitle("Respondents's trust on police iin France") +
+  ggtitle("Respondents's trust on police in France") +
   theme(axis.title.x=element_blank(),
         axis.title.y.left = element_blank(),
         axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
