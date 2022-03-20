@@ -18,6 +18,6 @@ Structure: This repository is organized as followed:
 
 * inputs: the r code of how we get the data set
 
-* project.Pproj: The project
+* project.Pproj: the project
 
 * LICENSE: the license of this project

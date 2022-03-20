@@ -1,18 +1,56 @@
 ---
-title: "TUT 6"
-subtitle: 
+title: "Faith on Government and Judiciary in Eastern Europe vs Western Europe"
 author:
   - Aleksander Babic
   - Shivik Arora
   - Siming Shan
-thanks:
+thanks: "Code and data are available at: https://github.com/SimingShan/STA304-project-3"
 date: "20 March 2022"
-output: pdf_document
+output:
+  bookdown::pdf_document2:
+    fig_caption: yes
+    number_sections: yes
 toc: FALSE
-bibliography: references.bib
+bibliography: /home/jovyan/STA304-project-3/references.bib
+nocite: '@*'
 ---
 
-```{r,include=FALSE}
+# Executive summary
+Happiness is increasingly being seen as measure of the prosperity of a country. On a national scale, this is often correlated with people’s faith in their elected representatives, like politicians, and appointed representatives, like judges and police [@citeHupert]. In our study, we wanted to assess the faith of European citizens in their country’s governance and judiciary. We picked two countries from Eastern Europe, Serbia, and Latvia, and two from Western Europe, UK, and France. Countries in Eastern Europe have a different historical background from the Western European countries and are poorer. Eastern European countries were under the influence of the Soviet Union until 1991 and only gained independence after. 
+
+We found that of the four countries, people in the UK are the most interested in politics. This could be due to the heightened interest around the topic of Brexit and UK’s plans to withdraw from the EU. Even though, Brexit officially happened after our data was collected, serious talks about withdrawal in the near future had been underway when our survey was undertaken. This would impact every citizen in a major way and could explain the high interest in politics of the UK population. They were closely followed by France, however, in Serbia and Latvia, most of the population showed little to no interest in politics. Participants from the Western European countries also expressed that they feel their country’s political systems allow them to play a more active role in politics. The feeling of a passive role in the politics could also explain the lack of interest in politics in the East. Participants from the Eastern European countries, on the other hand, felt they have minimal chance to play an active role in their country’s politics. This could be because of the historical background, Western European countries are richer, and have a more solid framework of political systems developed over the years. In the case of Britain, they had numerous colonies which they exploited whereas Eastern European countries were under Communist rule. Participants from the Western European countries also expressed a higher trust in the legal system and police of their countries compared to Eastern European countries. This can be attributed to still widespread existence of corruption and weaker political systems in the East. 
+
+Our analysis does have some weaknesses. The data was collected only from one individual per household. Most households have more than one adult and of different genders and generations, but we miss out on this data which could give us more to work with. Our survey was quite simplistic in its structure to increase penetration and response rates which limits us in creating in-depth analysis. We have seen that West European countries are quite like each other, and that Eastern European countries are like each other. We have also seen that there is a difference between the Eastern and Western European countries and potential reasons. Our analysis and data, however, hasn’t established any causal relationship between the facts and the potential identified reasons. In furthering this study, that would be the next step and we would encourage others interested in this topic to take that direction. 
+
+# Introduction
+Public satisfaction surveys are important tools that can be used to measure contentment among citizens. These can not only be used by the government to identify areas of weaknesses, or sub-groups which feel marginalized, but also to predict re-election chances and recognize what improvements can cause a big change in the sentiment towards the government. Third parties can conduct such surveys to assess the underlying feeling around the functioning of the government and evaluate their success by using these as KPIs. 
+
+Post the end of World War II in 1945, Europe was divided into Eastern and Western Europe until the end of the Cold War in 1991. Until 1991, there was Communist rule in these regions. In 1991, the Eastern European countries declared their independence when the Soviet Union crumbled and joined the Western European countries to form the European Union[@citesaylor]. This troubled history of the Eastern countries left them poorer and less organized than the Western countries. Our aim was to compare the current sentiment in these countries towards their own political systems. Almost 30 years later, we wanted to see if there still exists a difference among Eastern and Western countries with respect to how much they trust in their government, judicial system, and the police. 
+
+We used data from the European Social Survey 9- 2018. The ESS has a face-to face interview structure and is conducted every two years since its establishment in 2001. We also created a supplemental survey which we distributed online. We would expect the survey to only be filled by those who have strong views on governance and a strong interest in politics. To counter this, we tried to keep the questions as non-technical and simple as possible and promoted it on social media to reach a wider audience. Our survey also made it clear that this was not the case as we received many responses from people who were “Hardly interested” or “Not at all interested” in politics. Let us also discuss some limitations of our survey. We would expect there to be some negativity bias[@citeKendra].  Usually, people with strong negative views against the governance (or any other reason) are more likely to voice their opinions on social media or through surveys. This is because our minds tend to experience negative events more strongly and remember them than positive ones. It will also include response bias as it is extremely hard for people to quantify their feelings[@citeCameron]. Many studies show varying responses by people to the same questions on different days. This can possibly be attributed to the mood of the respondent, phrasing of our questions or other factors. We did include some open-ended questions in our survey, however, the responses to these are hard to analyze as they need to be combed through individually. Further studies should look at including more open-ended questions and methods to analyze them as these would really give the people an opportunity to state how they feel in their own words and not just quantify it on a scale of 1 – 10. To take care of privacy, the answers were collected anonymously and only basic demographic questions relating to age, gender, and education were asked.
+
+# Survey methodology
+This report presents the findings of a research task whose main objective was to analyze citizens’ faith in their government and legal system.  This was done in a cross-country comparative manner.  Moreover, our goal was to understand the relationships between the government and citizens, and whether the country’s membership in the European Union impacted those relationships.  
+To obtain the opinions of British, French, Serbian and Latvian citizens, each country was surveyed individually.  It was important to ensure that the population sample that was surveyed in each country was large enough and had very limited bias.  In the United Kingdom, the Economic & Social Research Council carried out the study, where 390 Primary Sampling Units were first selected, which are postcode sectors stratified by region.  One person per randomly selected address within the Primary Sampling Unit participated in the survey.  
+
+The Institute for Sociology and Social Research at the Faculty of Philosophy Belgrade carried out the survey in Serbia, where there were 39,711 enumeration areas with each consisting of 63 households on average.  721 Census enumeration areas were selected as Primary Sampling Units using probability proportional to size sampling.  Five households were selected from each PSU using systematic sampling.  Lastly, one person from each household was selected using the Kish method of sampling to be interviewed.
+
+In France, IPSOS conducted a survey where a two-domain design was used, with one of the domains consisting of large municipalities like Paris, Lyon, Marseille, and other municipalities with over 40,000 residences and the other domain consisting of all other municipalities.  In the first domain there were 80 strata, and samples were taken from each stratum based on the ratio of the stratum’s population to total data population.  A random sample of 850 residences were selected by stratified random sampling.   In each residence, one person over the age of 15 was selected to partake in the study using the Kish method of sampling.  In the second domain, within each of the 42 strata defined by the 21 administrative regions in France, 220 Primary Sampling Units were selected using systematic probability proportional to size sampling.  Residences within each Primary Sampling Unit were selected by random simple sampling, and at each residence one person aged 15 or older was selected using Kish method of sampling to participate in the survey.
+In Latvia, 3,794 geographical clusters which averaged 227 residences were used to set up the survey done by Kantar.  The clusters were stratified by region and territory type, producing 16 strata.  505 clusters were selected using probability proportional to size sampling.  From each of these clusters, 5 residences were selected by random sampling and one person was selected for an interview using the Kish method of sampling.
+
+# Discussion and Results
+Based on the survey results from the United Kingdom, France, Serbia, and Latvia, we see that the countries have different perspectives on the relationships between the citizens and government.  The age of the people surveyed in each country was similar, with the average age being around 54 for all countries.  
+
+The results displayed in Figure \@ref(fig:UKage) indicate that British people have a higher interest in domestic politics than the other countries surveyed.  The majority of responses fell in “Quite Interested”, whereas in France, Serbia and Latvia, the majority of responses were “Hardly Interested”.  The reason for British people’s interest in politics may be because of Brexit, which was the U.K.’s decision to leave the European Union in a 2016 referendum.  This decision meant that Britain was going to reshape its country’s economy, foreign policy and politics, attracting a lot of attention.  Prior to Britain’s exit from the European Union, British companies could move goods to and from the European Union without taxes or tariffs and people could travel throughout the EU without visa’[@citeMueller], however after Brexit many rules and regulations needed to be renegotiated.  
+
+Each country was surveyed as to whether or not citizens are able to take an active role in a political group.  Comparing the results was interesting, because the farther east we went, the more right-skewed the graphs became, as almost nobody believed that citizens were “Completely Able” to play an active role in domestic politics.  In every country, the most common answer was “Not at all able”, however in the two western European countries “A little able” and “Quite able” were a close second and third, while in the two eastern European countries citizens had very little belief that they could take an active role in a political group.  This could be a result of inconsistent democratic values across former socialist and communist countries that still present a major problem in politics to this day.  According to a study prepared by the United Nations Office on Drugs and Crime, 13.7% of Serbian citizens aged 18 to 64 have either direct or indirect exposure to a bribery experience with a public official on a yearly basis.  More than half of bribes paid are offered by citizens themselves, which proves the lack of faith Serbian citizens have in the ability of the public administration to function without the payment of some kind of kickback for facilitating bureaucratic procedures [@citeVukmirovic].
+
+Another question asked in the survey was whether people believe the political system in each country allows them to have a say in what their government does.  Similarly to the previous question, the survey results between the western European countries and eastern European countries differ.  Most people in France and Britain answered that they believe the political system allows them to have a “Very Little” say in what the government does compared to an overwhelming “Not at all” response from Serbia and Latvia.  Perhaps this indicates that western European countries are more alike than we may have thought, regardless of their membership in the European Union, and the same can be said about eastern European countries.  This indicates that the differences between the Western Bloc and Eastern Bloc still persist throughout Europe, even over 30 years after the fall of the Berlin Wall.
+
+Lastly, we examined citizens’ trust in their legal system.  People were asked to rate their trust in their government, on a scale of 0-10, with 0 being “No trust at all” and 10 being “Complete trust”.  Both western European countries had a bimodal distribution, with local maxima occurring at levels 5 and 7.  On the other hand, the two eastern European countries also had a bimodal distribution, however the local maxima were “No trust at all” and level 5.  This signifies that citizens’ trust in their legal system in eastern Europe is a lot worse than in western Europe, regardless of European Union membership.  According to a YouGov poll published by Open Society Foundations of 12,500 people across the Czech Republic, Bulgaria, Hungary, Romania, Poland, Germany and Slovakia, between 51% and 61% of people felt that democracy was under threat in all of the countries [@citeHenley].  Trust in democracy goes hand in hand with confidence in state institutions [@citeSirotnikova].  It is clear to see that over 30 years after the fall of communism and socialism in eastern Europe, citizens still do not have faith in their state institutions.  Even if the country is a member of the European Union where democratic values and transparency is supposed to be upheld, does not reinforce the people’s confidence in their government.
+
+The following plots are produced by using the `ggplot2` package [@R-ggplot2] in R [@R-base]. The data set was imported by using the `essurvey` package [@R-essurvey], cleaned by using `janitor` [@R-janitor] and `tidyselect` [@R-tidyselect] packages. 
+```{r ,include=FALSE}
 # install.packages("essurvey")
 library(essurvey)
 show_countries()
@@ -157,7 +195,9 @@ Latvia_politics["age_group"] = cut(Latvia_politics$age, c(15, 24, 34, 44, 54, 64
                                c("15-24", "25-34", "35-44",
                                  "45-54", "55-64", "65-74", 
                                  "75-84", "Over 85"), include.lowest=TRUE)
+```
 
+```{r plot1,echo=FALSE, fig.cap="age distribution in UK"}
 ggplot(UK_politics, aes(x=age_group,fill=age_group)) + geom_bar(stat = "count") +
   ggtitle("Survey respondents's age in UK") +
   theme(legend.position = "none",
@@ -169,6 +209,9 @@ ggplot(UK_politics, aes(x=age_group,fill=age_group)) + geom_bar(stat = "count") 
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot2, echo=FALSE, fig.cap="age distribution in France"}
 ggplot(France_politics, aes(x=age_group,fill=age_group)) + geom_bar(stat = "count") +
   ggtitle("Survey respondents's age in France") +
   theme(legend.position = "none",
@@ -180,7 +223,9 @@ ggplot(France_politics, aes(x=age_group,fill=age_group)) + geom_bar(stat = "coun
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
 
+```{r plot3,echo=FALSE, fig.cap="age distribution in Serbia"}
 ggplot(Serbia_politics, aes(x=age_group,fill=age_group)) + geom_bar(stat = "count") +
   ggtitle("Survey respondents's age in Serbia") +
   theme(legend.position = "none",
@@ -192,6 +237,9 @@ ggplot(Serbia_politics, aes(x=age_group,fill=age_group)) + geom_bar(stat = "coun
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot4, echo=FALSE, fig.cap="age distribution in Latvia"}
 ggplot(Latvia_politics, aes(x=age_group,fill=age_group)) + geom_bar(stat = "count") +
   ggtitle("Survey respondents's age in Latvia") +
   theme(legend.position = "none",
@@ -202,21 +250,12 @@ ggplot(Latvia_politics, aes(x=age_group,fill=age_group)) + geom_bar(stat = "coun
   scale_fill_brewer(palette="Purples")+ 
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
-
-
-
-  
-
-
-
-                    
 ```
 
-```{r,echo=FALSE}
+
+```{r UKage, echo=FALSE, fig.cap="\\label{fig:plot5}distribution of respondents' interest in politics in UK"}
 #politics interest graph
-
 library(ggplot2)
-
 ggplot(UK_politics, aes(x=politics_interest,fill=politics_interest)) + 
   geom_bar(stat = "count", width = 0.5) +
   ggtitle("Respondents's interest in politics in UK") +
@@ -229,6 +268,9 @@ ggplot(UK_politics, aes(x=politics_interest,fill=politics_interest)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot6,echo=FALSE, fig.cap="distribution of respondents' interest in politics in France"}
 ggplot(France_politics, aes(x=politics_interest,fill=politics_interest)) + 
   geom_bar(stat = "count", width = 0.5) +
   ggtitle("Respondents's interest in politics in France") +
@@ -241,6 +283,9 @@ ggplot(France_politics, aes(x=politics_interest,fill=politics_interest)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot7,echo=FALSE, fig.cap="distribution of respondents' interest in politics in Serbia"}
 ggplot(Serbia_politics, aes(x=politics_interest,fill=politics_interest)) + 
   geom_bar(stat = "count", width = 0.5) +
   ggtitle("Respondents's interest in politics in Serbia") +
@@ -253,6 +298,9 @@ ggplot(Serbia_politics, aes(x=politics_interest,fill=politics_interest)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot8,echo=FALSE, fig.cap="distribution of respondents' interest in politics in Latvia"}
 ggplot(Latvia_politics, aes(x=politics_interest,fill=politics_interest)) + 
   geom_bar(stat = "count", width = 0.5) +
   ggtitle("Respondents's interest in politics in Latvia") +
@@ -267,9 +315,8 @@ ggplot(Latvia_politics, aes(x=politics_interest,fill=politics_interest)) +
         
 ```
 
-```{r,echo=FALSE}
+```{r plot9,echo=FALSE, fig.cap="distribution of respondents' response to the title question"}
 # Do you think you are able to take active role in political group?
-
 library(ggplot2)
 ggplot(UK_politics, aes(x=able_to_paly_role,fill=able_to_paly_role)) + 
   geom_bar(stat = "count") +
@@ -285,7 +332,9 @@ ggplot(UK_politics, aes(x=able_to_paly_role,fill=able_to_paly_role)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
 
+```{r plot10,echo=FALSE, fig.cap="distribution of respondents' response to the title question"}
 ggplot(France_politics, aes(x=able_to_paly_role,fill=able_to_paly_role)) + 
   geom_bar(stat = "count") +
   labs(fill="How much") +
@@ -300,6 +349,9 @@ ggplot(France_politics, aes(x=able_to_paly_role,fill=able_to_paly_role)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot11,echo=FALSE, fig.cap="distribution of respondents' response to the title question"}
 ggplot(Serbia_politics, aes(x=able_to_paly_role,fill=able_to_paly_role)) + 
   geom_bar(stat = "count") +
   labs(fill="How much") +
@@ -314,6 +366,9 @@ ggplot(Serbia_politics, aes(x=able_to_paly_role,fill=able_to_paly_role)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot12,echo=FALSE, fig.cap="distribution of respondents' response to the title question"}
 ggplot(Latvia_politics, aes(x=able_to_paly_role,fill=able_to_paly_role)) + 
   geom_bar(stat = "count") +
   labs(fill="How much") +
@@ -327,12 +382,10 @@ ggplot(Latvia_politics, aes(x=able_to_paly_role,fill=able_to_paly_role)) +
   scale_fill_brewer(palette="Purples")+ 
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
-
 ```
 
-```{r,echo=FALSE}
+```{r plot13,echo=FALSE, fig.cap="distribution of respondents' response to the title question"}
 # Do you think Political system allows people to have a say in what government does
-
 library(ggplot2)
 ggplot(UK_politics, aes(x=able_to_say,fill=able_to_say)) + 
   geom_bar(stat = "count") +
@@ -348,6 +401,9 @@ ggplot(UK_politics, aes(x=able_to_say,fill=able_to_say)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot14,echo=FALSE, fig.cap="distribution of respondents' response to the title question"}
 ggplot(France_politics, aes(x=able_to_say,fill=able_to_say)) + 
   geom_bar(stat = "count") +
   labs(fill="How much") +
@@ -362,6 +418,9 @@ ggplot(France_politics, aes(x=able_to_say,fill=able_to_say)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot15,echo=FALSE, fig.cap="distribution of respondents' response to the title question"}
 ggplot(Serbia_politics, aes(x=able_to_say,fill=able_to_say)) + 
   geom_bar(stat = "count") +
   labs(fill="How much") +
@@ -376,6 +435,9 @@ ggplot(Serbia_politics, aes(x=able_to_say,fill=able_to_say)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot16,echo=FALSE, fig.cap="distribution of respondents' response to the title question"}
 ggplot(Latvia_politics, aes(x=able_to_say,fill=able_to_say)) + 
   geom_bar(stat = "count") +
   labs(fill="How much") +
@@ -392,9 +454,8 @@ ggplot(Latvia_politics, aes(x=able_to_say,fill=able_to_say)) +
         
 ```
 
-```{r,echo=FALSE}
+```{r plot17,echo=FALSE, fig.cap="distribution of respondents' response to the title question"}
 # Do you think whether political system allows people to have influence on politics?
-
 library(ggplot2)
 ggplot(UK_politics, aes(x=allow_influence,fill=allow_influence)) + 
   geom_bar(stat = "count") +
@@ -410,7 +471,9 @@ ggplot(UK_politics, aes(x=allow_influence,fill=allow_influence)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
 
+```{r plot18,echo=FALSE, fig.cap="distribution of respondents' response to the title question"}
 ggplot(France_politics, aes(x=allow_influence,fill=allow_influence)) + 
   geom_bar(stat = "count") +
   labs(fill="How much") +
@@ -425,7 +488,9 @@ ggplot(France_politics, aes(x=allow_influence,fill=allow_influence)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
 
+```{r plot19,echo=FALSE, fig.cap="distribution of respondents' response to the title question"}
 ggplot(Serbia_politics, aes(x=allow_influence,fill=allow_influence)) + 
   geom_bar(stat = "count") +
   labs(fill="How much") +
@@ -440,6 +505,9 @@ ggplot(Serbia_politics, aes(x=allow_influence,fill=allow_influence)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot20,echo=FALSE, fig.cap="distribution of respondents' response to the title question"}
 ggplot(Latvia_politics, aes(x=allow_influence,fill=allow_influence)) + 
   geom_bar(stat = "count") +
   labs(fill="How much") +
@@ -453,14 +521,10 @@ ggplot(Latvia_politics, aes(x=allow_influence,fill=allow_influence)) +
   scale_fill_brewer(palette="Purples")+ 
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
-
-
-
 ```
 
-```{r,echo=FALSE}
+```{r plot21,echo=FALSE, fig.cap="distribution of respondents' response to the title question"}
 # trust legal system?
-
 library(ggplot2)
 ggplot(UK_politics, aes(x=trust_legal_system,fill=trust_legal_system)) + 
   geom_bar(stat = "count") +
@@ -474,7 +538,9 @@ ggplot(UK_politics, aes(x=trust_legal_system,fill=trust_legal_system)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
 
+```{r plot22,echo=FALSE, fig.cap="distribution of respondents' trust on legal system"}
 ggplot(France_politics, aes(x=trust_legal_system,fill=trust_legal_system)) + 
   geom_bar(stat = "count") +
   labs(fill="Score") +
@@ -487,7 +553,9 @@ ggplot(France_politics, aes(x=trust_legal_system,fill=trust_legal_system)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
 
+```{r plot23,echo=FALSE, fig.cap="distribution of respondents' trust on legal system"}
 ggplot(Serbia_politics, aes(x=trust_legal_system,fill=trust_legal_system)) + 
   geom_bar(stat = "count") +
   labs(fill="Score") +
@@ -500,6 +568,9 @@ ggplot(Serbia_politics, aes(x=trust_legal_system,fill=trust_legal_system)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot24,echo=FALSE, fig.cap="distribution of respondents' trust on legal system"}
 ggplot(Latvia_politics, aes(x=trust_legal_system,fill=trust_legal_system)) + 
   geom_bar(stat = "count") +
   labs(fill="Score") +
@@ -511,12 +582,10 @@ ggplot(Latvia_politics, aes(x=trust_legal_system,fill=trust_legal_system)) +
         legend.position = "none")+
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
-
 ```
 
-```{r,echo=FALSE}
+```{r plot25,echo=FALSE, fig.cap="distribution of respondents' trust on police"}
 # trust police?
-
 library(ggplot2)
 ggplot(UK_politics, aes(x=police,fill=police)) + 
   geom_bar(stat = "count") +
@@ -530,6 +599,9 @@ ggplot(UK_politics, aes(x=police,fill=police)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot26,echo=FALSE, fig.cap="distribution of respondents' trust on police"}
 library(ggplot2)
 ggplot(France_politics, aes(x=police,fill=police)) + 
   geom_bar(stat = "count") +
@@ -542,7 +614,9 @@ ggplot(France_politics, aes(x=police,fill=police)) +
         legend.position = "none") +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
+```
 
+```{r plot27,echo=FALSE, fig.cap="distribution of respondents' trust on police"}
 library(ggplot2)
 ggplot(Serbia_politics, aes(x=police,fill=police)) + 
   geom_bar(stat = "count") +
@@ -556,6 +630,9 @@ ggplot(Serbia_politics, aes(x=police,fill=police)) +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
+```
+
+```{r plot28,echo=FALSE, fig.cap="distribution of respondents' trust on police"}
 library(ggplot2)
 ggplot(Latvia_politics, aes(x=police,fill=police)) + 
   geom_bar(stat = "count") +
@@ -568,57 +645,28 @@ ggplot(Latvia_politics, aes(x=police,fill=police)) +
         legend.position = "none") +
   stat_count(geom = "text", colour = "black", size = 4,
              aes(label = ..count.. ), position=position_stack(vjust=0.5))
+```
 
+```{r plot29,echo=FALSE, fig.cap="distribution of respondents' trust on politicians"}
+ggplot(UK_politics, aes(x=trust_politicians,fill=trust_politicians)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on politicians in UK") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") +
+  stat_count(geom = "text", colour = "black", size = 4,
+             aes(label = ..count.. ), position=position_stack(vjust=0.5))
 
 ```
 
-```{r,echo=FALSE}
-# trust police?
-
-library(ggplot2)
-ggplot(UK_politics, aes(x=police,fill=police)) + 
+```{r plot30,echo=FALSE, fig.cap="distribution of respondents' trust on politicians"}
+ggplot(France_politics, aes(x=trust_politicians,fill=trust_politicians)) + 
   geom_bar(stat = "count") +
   labs(fill="Score") +
-  ggtitle("Respondents's trust on police in UK") +
-  theme(axis.title.x=element_blank(),
-        axis.title.y.left = element_blank(),
-        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
-        plot.title = element_text(hjust = 0.5, face = "bold"),
-        legend.position = "none") +
-  stat_count(geom = "text", colour = "black", size = 4,
-             aes(label = ..count.. ), position=position_stack(vjust=0.5))
-
-library(ggplot2)
-ggplot(France_politics, aes(x=police,fill=police)) + 
-  geom_bar(stat = "count") +
-  labs(fill="Score") +
-  ggtitle("Respondents's trust on police iin France") +
-  theme(axis.title.x=element_blank(),
-        axis.title.y.left = element_blank(),
-        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
-        plot.title = element_text(hjust = 0.5, face = "bold"),
-        legend.position = "none") +
-  stat_count(geom = "text", colour = "black", size = 4,
-             aes(label = ..count.. ), position=position_stack(vjust=0.5))
-
-library(ggplot2)
-ggplot(Serbia_politics, aes(x=police,fill=police)) + 
-  geom_bar(stat = "count") +
-  labs(fill="Score") +
-  ggtitle("Respondents's trust on police in Serbia") +
-  theme(axis.title.x=element_blank(),
-        axis.title.y.left = element_blank(),
-        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
-        plot.title = element_text(hjust = 0.5, face = "bold"),
-        legend.position = "none") +
-  stat_count(geom = "text", colour = "black", size = 4,
-             aes(label = ..count.. ), position=position_stack(vjust=0.5))
-
-library(ggplot2)
-ggplot(Latvia_politics, aes(x=police,fill=police)) + 
-  geom_bar(stat = "count") +
-  labs(fill="Score") +
-  ggtitle("Respondents's trust on police in Latvia") +
+  ggtitle("Respondents's trust on politicians in France") +
   theme(axis.title.x=element_blank(),
         axis.title.y.left = element_blank(),
         axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
@@ -629,3 +677,162 @@ ggplot(Latvia_politics, aes(x=police,fill=police)) +
 
 
 ```
+
+```{r plot31,echo=FALSE, fig.cap="distribution of respondents' trust on politicians"}
+ggplot(Serbia_politics, aes(x=trust_politicians,fill=trust_politicians)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on politicians in Serbia") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") +
+  stat_count(geom = "text", colour = "black", size = 4,
+             aes(label = ..count.. ), position=position_stack(vjust=0.5))
+
+
+```
+
+```{r plot32,echo=FALSE, fig.cap="distribution of respondents' trust on politicians"}
+ggplot(Latvia_politics, aes(x=trust_politicians,fill=trust_politicians)) + 
+  geom_bar(stat = "count") +
+  labs(fill="Score") +
+  ggtitle("Respondents's trust on politicians in Latvia") +
+  theme(axis.title.x=element_blank(),
+        axis.title.y.left = element_blank(),
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        legend.position = "none") +
+  stat_count(geom = "text", colour = "black", size = 4,
+             aes(label = ..count.. ), position=position_stack(vjust=0.5))
+
+```
+
+\newpage
+
+# Supplementary survey
+Follow the link to our survey: https://docs.google.com/forms/d/e/1FAIpQLSeRu9pCi-3jRfW84SdTaovHwhQKyUWISMzRF7RuA4HgHpF3YQ/viewform?fbzx=8868210481898627730
+
+## Preamble
+The most important factor that drives elections and change is sentiment. Government electives are of the people, for the people and by the people, and so should be the judicial appointments and legal systems of a country. In your position, as citizens and voters, we would like to understand how you feel about the current state of governance and judicial systems of your country. How interested are you in, and how satisfied are you with the current state of affairs?
+
+We would request you to answer as accurately as possible and to the best of your knowledge. Your responses will be anonymous and will be used to prepare a short report. None of your responses can be used to identify you. Your responses will not be misused and will be private. This survey is voluntary but we would really appreciate if you could take the time out to fill it.
+
+## Questions
+1. What is your age? 
+    - 15-24
+    - 25-34
+    - 35-44
+    - 45-54
+    - 55-64
+    - 65-74
+    - 75-84
+    - over 86
+    - N/A
+
+2. What is your gender?
+    - Male
+    - Female
+    - Prefer not to say
+  
+3. What is your ethnicity?
+    - African American
+    - Hispanic
+    - White
+    - Asian
+    - Other
+
+4. How religiously do you follow political news?
+    - Very often
+    - Somewhat often
+    - Rarely
+    - Never
+    - N/A
+
+5. Do you agree with how your government has handled the pandemic?
+    - Yes
+    - No
+    - Prefer not to say
+  
+6. Do you think there is a deep state in your country?
+    - Yes
+    - No
+    - Prefer not to say
+  
+7. Do you trust your government more now or ten years ago?
+    - Yes
+    - No
+    - Prefer not to say
+  
+8. Do you think your country has fair elections?
+    - Yes
+    - No
+    - Prefer not to say
+
+9. Do you trust the federal government to always do what is right for its people?
+    - Yes
+    - No
+    - Prefer not to say
+  
+10.Are you proud of your citizenship? Why?
+
+11. On a scale of 0 - 10, with 0 being the least and 10 the most, how much would you say you trust the police of your country?
+    - 0 No trust at all
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10 Complete trust
+  
+12. On a scale of 0 - 10, with 0 being the least and 10 the most, how much would you say you trust the legal system of your country?
+    - 0 No trust at all
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10 Complete trust
+  
+13. On a scale of 0 - 10, with 0 being the least and 10 the most, how much would you say you trust the politicians of your country?
+    - 0 No trust at all
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10 Complete trust
+  
+14. On a scale of 0 - 10, with 0 being the least and 10 the most, how much do you think media in your country distributes selective/biased news for the government?
+    - 0 No trust at all
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10 Complete trust
+   
+## End page
+Thank you for participating in this survey!
+
+
+\newpage
+# References
+
